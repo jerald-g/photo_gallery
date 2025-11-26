@@ -1,0 +1,151 @@
+:root {
+    --primary-color: #ffb7b2;
+    --secondary-color: #ff9aa2;
+    --bg-color: #fff0f5; /* Lavender Blush */
+    --text-color: #4a4a4a;
+    --card-bg: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(180deg, #ffe6ea 0%, var(--bg-color) 100%);
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #e85d75;
+    margin: 0;
+    text-shadow: 2px 2px 0px #fff;
+}
+
+/* Upload Section */
+.upload-section {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 2px dashed #e85d75;
+    display: inline-block;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: white;
+    color: #e85d75;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #e85d75;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 100px; /* Space for music player */
+}
+
+.photo-card {
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px) rotate(1deg);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.download-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border-radius: 50%;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.photo-card:hover .download-btn {
+    opacity: 1;
+}
+
+/* Music Player */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    border: 2px solid #ffb7b2;
+}
+
+.music-info {
+    font-size: 0.9rem;
+}
+
+#play-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #e85d75;
+}
+
+/* Floating Hearts Animation */
+.heart {
+    position: fixed;
+    color: #ff9aa2;
+    font-size: 20px;
+    animation: floatUp 4s linear forwards;
+    opacity: 0;
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}

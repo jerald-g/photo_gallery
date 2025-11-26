@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Us ❤️</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <header>
+        <h1>Our Memories ❤️</h1>
+        <p>A collection of our beautiful moments</p>
+    </header>
+
+    <main>
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="file-upload" class="custom-file-upload">
+                    Upload New Photo 📸
+                </label>
+                <input id="file-upload" type="file" name="photo" accept="image/*" required onchange="this.form.submit()"/>
+            </form>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery">
+            <% if (images.length === 0) { %>
+                <div class="empty-state">
+                    <p>No photos yet! Upload our first memory above. ✨</p>
+                </div>
+            <% } else { %>
+                <% images.forEach(function(image) { %>
+                    <div class="photo-card">
+                        <img src="/uploads/<%= image %>" alt="Memory">
+                        <a href="/uploads/<%= image %>" download class="download-btn">⬇️</a>
+                    </div>
+                <% }); %>
+            <% } %>
+        </section>
+    </main>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <div class="music-info">
+            <span>🎵 Now Playing: </span>
+            <span id="song-title">Click to Start</span>
+        </div>
+        <div class="controls">
+            <button id="play-btn">▶️</button>
+        </div>
+        <audio id="bg-music"></audio>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
